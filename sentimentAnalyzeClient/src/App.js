@@ -37,6 +37,7 @@ class App extends React.Component {
     this.setState({sentiment:true});
     let ret = "";
     let url = ".";
+    console.log(url);
 
     if(this.state.mode === "url") {
       url = url+"/url/sentiment?url="+document.getElementById("textinput").value;
