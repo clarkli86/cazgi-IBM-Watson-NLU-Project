@@ -56,13 +56,18 @@ class App extends React.Component {
       } else if (response.data === "negative"){
         output = <div style={{color:"red",fontSize:20}}>{response.data}</div>
       } else {
-        output = <div style={{color:"orange",fontSize:20}}>{response.data}</div>
+        output = <div style={{color:"yellow",fontSize:20}}>{response.data}</div>
       }
       this.setState({sentimentOutput:output});
     });
   }
 
   sendForEmotionAnalysis = () => {
+      // Test only here
+      let data = { "sadness": 0.621, "joy": 0.21 };
+      this.setState({sentimentOutput:<EmotionTable emotions={data}/>});
+      return;
+
     this.setState({sentiment:false});
     let ret = "";
     let url = ".";
