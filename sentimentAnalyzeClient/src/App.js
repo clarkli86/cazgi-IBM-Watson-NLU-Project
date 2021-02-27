@@ -48,6 +48,10 @@ class App extends React.Component {
     ret.then((response)=>{
 
       //Include code here to check the sentiment and fomrat the data accordingly
+      console.log(response.data);
+      // text returns { score : 1.0, label : "negative" };
+      if (this.state.mode === "text")
+        response.data = response.data.label;
 
       this.setState({sentimentOutput:response.data});
       let output = response.data;
@@ -70,7 +74,7 @@ class App extends React.Component {
     */
     this.setState({sentiment:false});
     let ret = "";
-    let url = ".";
+    let url = "https://7cd-sentiment-analyzer-bright-bandicoot-aq.mybluemix.net";
     if(this.state.mode === "url") {
       url = url+"/url/emotion?url="+document.getElementById("textinput").value;
     } else {
@@ -79,6 +83,7 @@ class App extends React.Component {
     ret = axios.get(url);
 
     ret.then((response)=>{
+      console.log(response.data);
       this.setState({sentimentOutput:<EmotionTable emotions={response.data}/>});
   });
   }
