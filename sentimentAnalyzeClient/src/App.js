@@ -63,11 +63,11 @@ class App extends React.Component {
   }
 
   sendForEmotionAnalysis = () => {
-      // Test only here
-      let data = { "sadness": 0.621, "joy": 0.21 };
-      this.setState({sentimentOutput:<EmotionTable emotions={data}/>});
-      return;
-
+    /*
+     let data = { "sadness": 0.621, "joy": 0.21 };
+     this.setState({sentimentOutput:<EmotionTable emotions={data}/>});
+    return;
+    */
     this.setState({sentiment:false});
     let ret = "";
     let url = ".";

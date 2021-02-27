@@ -2,8 +2,6 @@ import React from 'react';
 import './bootstrap.min.css';
 
 class EmotionTable extends React.Component {
-    state = { emotionList:[] }
-
     constructor(props) {
         super(props);        
         let emotions = [];
@@ -11,7 +9,7 @@ class EmotionTable extends React.Component {
             emotions.push([key, props.emotions[key]]);
         }
         console.log(emotions);
-        this.setState({emotionList:emotions})
+        this.state = {emotionList:emotions}
         console.log(this.state.emotionList);
     }
 
@@ -22,9 +20,11 @@ class EmotionTable extends React.Component {
           {/*JSON.stringify(this.props.emotions)*/}
           <table className="table table-bordered">
             <tbody>
-            {this.state.emotions.map(function(emotion){
-                    return <tr><td>key={emotion}>{emotion}</td></tr>;
-                  })
+            {
+                this.state.emotionList.map(
+                    function(emotion){
+                        return <tr><td>{emotion[0]}</td><td>{emotion[1]}</td></tr>;
+                    })
             }            
             </tbody>
           </table>
