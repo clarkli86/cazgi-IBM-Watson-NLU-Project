@@ -36,7 +36,7 @@ class App extends React.Component {
   sendForSentimentAnalysis = () => {
     this.setState({sentiment:true});
     let ret = "";
-    let url = "https://7cd-sentiment-analyzer-bright-bandicoot-aq.mybluemix.net";
+    let url = ".";
     console.log(url);
 
     if(this.state.mode === "url") {
@@ -74,7 +74,7 @@ class App extends React.Component {
     */
     this.setState({sentiment:false});
     let ret = "";
-    let url = "https://7cd-sentiment-analyzer-bright-bandicoot-aq.mybluemix.net";
+    let url = ".";
     if(this.state.mode === "url") {
       url = url+"/url/emotion?url="+document.getElementById("textinput").value;
     } else {
